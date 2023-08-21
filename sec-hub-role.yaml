@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  OrganisationAccountID:
+    Type: String
+    Description: The account ID of the Organisation Account
+    Default: "111111111111"
+
+  SecurityAccountID:
+    Type: String
+    Description: The account ID of the Security Account
+    Default: "222222222222"
+
+Resources:
+  SecHubRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: SecurityHubRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref SecurityAccountID
+            Action:
+              - sts:AssumeRole
+      Path: '/'
+
+  EventBridgeInvokeEventBusRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: EventBridgeInvokeEventBusRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: events.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: '/'
+      Policies:
+        - PolicyName: AllowPutEventsToAnyEventBusInTheOrganisationAccount
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: events:PutEvents
+                Resource: !Sub "arn:aws:events:${AWS::Region}:${OrganisationAccountID}:event-bus/*"

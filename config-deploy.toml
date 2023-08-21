@@ -1,0 +1,12 @@
+# Deployment configuration
+
+repo-name    = "SOAR-sec-hub-role"
+part-of      = 'soar'
+
+
+[[CloudFormation]]
+name         = "INFRA-sec-hub-role"
+template     = 'sec-hub-role.yaml'
+account      = 'ALL'
+regions      = '{main-region}'
+capabilities = 'CAPABILITY_NAMED_IAM'

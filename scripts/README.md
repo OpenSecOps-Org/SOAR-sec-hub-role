@@ -2,11 +2,7 @@
 
 This folder is of real use only to Delegat AB, but feel free take a look.
 
-You may find aliases to these in the root folder. If not, they can easily be created
-by executing:
+Don't put anything in this folder, as it will be deleted and recreated
+whenever development and deployment scripts are updated. If you need to
+add scripts of your own, use a dedicated folder.
 
-```console
-ln -s scripts/deploy.py deploy
-ln -s scripts/publish.zsh publish
-ln -s scripts/setup.zsh setup
-```

@@ -1,5 +1,9 @@
 # Change Log
 
+## v1.0.4
+    * Python v3.12.2.
+    * `.python-version` file to support `pyenv`.
+
 ## v1.0.3
     * Refreshed scripts.
 

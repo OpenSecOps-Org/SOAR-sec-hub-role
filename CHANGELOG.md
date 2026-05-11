@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.0.10
+    * Enable auto-close workflow for external pull requests, enforcing the cathedral governance policy uniformly across all OpenSecOps repositories. Pull requests from non-team authors are closed automatically with a redirect comment pointing to the bug-report template, the GitHub Security Advisory flow, and the fork-under-MPL-2.0 path.
+
 ## v1.0.9
     * Updated GitHub remote references in publish.zsh script to use only OpenSecOps-Org, removed Delegat-AB
 

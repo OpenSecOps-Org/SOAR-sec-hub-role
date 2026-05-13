@@ -1,0 +1,4 @@
+component_name = "SOAR-sec-hub-role"
+converted = true
+converted_in = "v1.0.11"
+acknowledged_cves = []

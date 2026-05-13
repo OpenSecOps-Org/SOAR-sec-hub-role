@@ -31,12 +31,11 @@ EXPECTED_SIGNER_IDENTITY = "peter@peterbengtson.com"
 EXPECTED_SIGNER_ISSUER = "https://github.com/login/oauth"
 PUBLIC_ORG = "OpenSecOps-Org"
 
-# Until every OpenSecOps-Org repo ships signed releases (Phase 10), a
-# repo with no GitHub Release (or no .bundle assets) is reported with
-# a yellow "skipped — work in progress" banner and the caller proceeds.
-# When Phase 10 completes, flip to True and re-ship Installer; the
-# refresh mechanism distributes the change to every component.
-STRICT_VERIFICATION = False
+# Phase 10 closed on 2026-05-13: every repo in apps/foundation/repos.toml
+# and apps/soar/repos.toml ships signed releases. Strict mode is now the
+# steady-state: a release without signed bundles is a downgrade signal,
+# not a "not yet signed" state.
+STRICT_VERIFICATION = True
 
 
 # --- Colours (no-op when not a TTY; matches deploy.py's palette) ----------

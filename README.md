@@ -1,6 +1,6 @@
 # SOAR Sec Hub Role
 
-[![Daily CVE scan](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/daily-scan.yml/badge.svg)](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/daily-scan.yml) [![OpenSSF Scorecard](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/scorecard.yml/badge.svg)](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/scorecard.yml)
+[![Daily CVE scan](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/daily-scan.yml/badge.svg)](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/daily-scan.yml) [![OpenSSF Scorecard](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/scorecard.yml/badge.svg)](https://github.com/OpenSecOps-Org/SOAR-sec-hub-role/actions/workflows/scorecard.yml) [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12827/badge)](https://www.bestpractices.dev/projects/12827)
 
 This template is used to se up the role SecurityHubRole in all accounts. It's used by
 the Security Hub automation flows to access member accounts as an admin. This

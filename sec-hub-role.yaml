@@ -41,6 +41,10 @@ Resources:
             Action:
               - sts:AssumeRole
       Path: '/'
+      # The role is global, and the rules that use it run in every Region: the S3 tagging and
+      # bucket lifecycle rules send events to the SOAR-events bus in their own Region. So the
+      # permission covers the organisation account's buses in every Region, not only in the
+      # Region this stack is deployed to. Each bus's resource policy still decides who may deliver.
       Policies:
         - PolicyName: AllowPutEventsToAnyEventBusInTheOrganisationAccount
           PolicyDocument:
@@ -48,4 +52,4 @@ Resources:
             Statement:
               - Effect: Allow
                 Action: events:PutEvents
-                Resource: !Sub "arn:aws:events:${AWS::Region}:${OrganisationAccountID}:event-bus/*"
+                Resource: !Sub "arn:aws:events:*:${OrganisationAccountID}:event-bus/*"

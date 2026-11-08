@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.0.13
+    * Fix: `EventBridgeInvokeEventBusRole` allowed `events:PutEvents` only on event buses in the Region where this stack is deployed, the main Region. The role is global, and the rules that use it run in every Region: the S3 tagging rules of `SOAR-soc-incident-when-s3-tag-applied` and the bucket lifecycle rules of `SOAR-detect-log-buckets` send events to the `SOAR-events` bus in their own Region. Outside the main Region, IAM denied every such delivery, so a bucket tagged or created there was never seen by those components. The role now allows `events:PutEvents` on the organisation account's event buses in every Region. Each bus's own resource policy still decides which accounts may deliver.
+
 ## v1.0.12
     * `README.md` gains the OpenSSF Best Practices Passing-level badge (project entry [bestpractices.dev/projects/12827](https://www.bestpractices.dev/projects/12827)).
 
